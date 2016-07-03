@@ -15,6 +15,8 @@
 		E1447A411D2975EC00E36F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1447A3F1D2975EC00E36F14 /* LaunchScreen.storyboard */; };
 		E1447A4A1D29778200E36F14 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = E1447A481D29778200E36F14 /* LICENSE */; };
 		E1447A4B1D29778200E36F14 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E1447A491D29778200E36F14 /* README.md */; };
+		E15BA24E1D299E3F00C1DD7B /* TestSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */; };
+		E15BA2511D299F9900C1DD7B /* TestObjCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BA2501D299F9900C1DD7B /* TestObjCFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,10 @@
 		E1447A421D2975EC00E36F14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1447A481D29778200E36F14 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		E1447A491D29778200E36F14 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E15BA24C1D299E3E00C1DD7B /* Guteabsicht-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Guteabsicht-Bridging-Header.h"; sourceTree = "<group>"; };
+		E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftFile.swift; sourceTree = "<group>"; };
+		E15BA24F1D299F9900C1DD7B /* TestObjCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObjCFile.h; sourceTree = "<group>"; };
+		E15BA2501D299F9900C1DD7B /* TestObjCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObjCFile.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,10 @@
 				E1447A3F1D2975EC00E36F14 /* LaunchScreen.storyboard */,
 				E1447A421D2975EC00E36F14 /* Info.plist */,
 				E1447A311D2975EC00E36F14 /* Supporting Files */,
+				E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */,
+				E15BA24C1D299E3E00C1DD7B /* Guteabsicht-Bridging-Header.h */,
+				E15BA24F1D299F9900C1DD7B /* TestObjCFile.h */,
+				E15BA2501D299F9900C1DD7B /* TestObjCFile.m */,
 			);
 			path = Guteabsicht;
 			sourceTree = "<group>";
@@ -161,6 +171,8 @@
 				E1447A361D2975EC00E36F14 /* AppDelegate.m in Sources */,
 				E1447A4B1D29778200E36F14 /* README.md in Sources */,
 				E1447A331D2975EC00E36F14 /* main.m in Sources */,
+				E15BA24E1D299E3F00C1DD7B /* TestSwiftFile.swift in Sources */,
+				E15BA2511D299F9900C1DD7B /* TestObjCFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,14 +286,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Guteabsicht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanov.Guteabsicht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Guteabsicht/Guteabsicht-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -289,14 +305,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Guteabsicht/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amanov.Guteabsicht;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Guteabsicht/Guteabsicht-Bridging-Header.h";
 			};
 			name = Release;
 		};
