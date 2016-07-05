@@ -17,6 +17,7 @@
 		E1447A4B1D29778200E36F14 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = E1447A491D29778200E36F14 /* README.md */; };
 		E15BA24E1D299E3F00C1DD7B /* TestSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */; };
 		E15BA2511D299F9900C1DD7B /* TestObjCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E15BA2501D299F9900C1DD7B /* TestObjCFile.m */; };
+		E1AD85A21D2C3FBC004F8180 /* VehiclesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD85A11D2C3FBC004F8180 /* VehiclesRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestSwiftFile.swift; sourceTree = "<group>"; };
 		E15BA24F1D299F9900C1DD7B /* TestObjCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObjCFile.h; sourceTree = "<group>"; };
 		E15BA2501D299F9900C1DD7B /* TestObjCFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObjCFile.m; sourceTree = "<group>"; };
+		E1AD85A11D2C3FBC004F8180 /* VehiclesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				E15BA24C1D299E3E00C1DD7B /* Guteabsicht-Bridging-Header.h */,
 				E15BA24F1D299F9900C1DD7B /* TestObjCFile.h */,
 				E15BA2501D299F9900C1DD7B /* TestObjCFile.m */,
+				E1AD85A11D2C3FBC004F8180 /* VehiclesRequest.swift */,
 			);
 			path = Guteabsicht;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				E1447A391D2975EC00E36F14 /* ViewController.m in Sources */,
 				E1447A361D2975EC00E36F14 /* AppDelegate.m in Sources */,
+				E1AD85A21D2C3FBC004F8180 /* VehiclesRequest.swift in Sources */,
 				E1447A4B1D29778200E36F14 /* README.md in Sources */,
 				E1447A331D2975EC00E36F14 /* main.m in Sources */,
 				E15BA24E1D299E3F00C1DD7B /* TestSwiftFile.swift in Sources */,

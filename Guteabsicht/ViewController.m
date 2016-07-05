@@ -13,6 +13,8 @@
 
 @property (nonatomic, weak) IBOutlet UILabel* label;
 
+@property (nonatomic, strong) VehiclesRequest* vr;
+
 @end
 
 @implementation ViewController
@@ -26,6 +28,9 @@
     NSString* str = [tsf getTestObjCStringTrhoughSwift];
     
     self.label.text = str;
+    
+    self.vr = [[VehiclesRequest alloc] init];
+    [self.vr startVehiclesListRequest:nil];
 }
 
 - (void)didReceiveMemoryWarning {
