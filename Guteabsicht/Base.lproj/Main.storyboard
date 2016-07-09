@@ -18,20 +18,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AA-7O-z5Z">
-                                <rect key="frame" x="279" y="289" width="42" height="21"/>
+                                <rect key="frame" x="279" y="20" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r2u-F5-pMh">
+                                <rect key="frame" x="0.0" y="49" width="600" height="551"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="P1L-b5-xip"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="mAu-Zp-JeS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7AA-7O-z5Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="n1V-6H-mKB"/>
-                            <constraint firstItem="7AA-7O-z5Z" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="rYe-iA-Uoy"/>
+                            <constraint firstItem="r2u-F5-pMh" firstAttribute="top" secondItem="7AA-7O-z5Z" secondAttribute="bottom" constant="8" id="7tK-kG-J5a"/>
+                            <constraint firstItem="7AA-7O-z5Z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9eY-BH-vEy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="r2u-F5-pMh" secondAttribute="bottom" id="Zs2-AV-0fu"/>
+                            <constraint firstItem="r2u-F5-pMh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ki7-V9-NRc"/>
+                            <constraint firstAttribute="trailing" secondItem="r2u-F5-pMh" secondAttribute="trailing" id="kzc-PS-PO9"/>
+                            <constraint firstItem="7AA-7O-z5Z" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nJR-bF-Aeb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="7AA-7O-z5Z" id="czU-Ub-CM6"/>
+                        <outlet property="vehiclesTable" destination="r2u-F5-pMh" id="H4z-Lr-rRt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

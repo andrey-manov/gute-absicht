@@ -11,94 +11,106 @@ import UIKit
 
 class VehiclesRequest : NSObject {
     
-    let defaultSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-    var dataTask: NSURLSessionDataTask?
+    var dataTask: NSURLSessionDataTask? = nil
     
-    func startVehiclesListRequest(completion: (NSData?, NSError?) -> Void) {
+    init(session: NSURLSession, commonComponents components: NSURLComponents, tankId: Int?, completion:([Vehicle]?, NSError?) -> Void) {
         
-        if dataTask != nil {
-            dataTask?.cancel()
-        }
+        super.init()
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-//        let expectedCharSet = NSCharacterSet.URLQueryAllowedCharacterSet()
-//        let searchTerm = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(expectedCharSet)!
+        //        let expectedCharSet = NSCharacterSet.URLQueryAllowedCharacterSet()
+        //        let searchTerm = searchBar.text!.stringByAddingPercentEncodingWithAllowedCharacters(expectedCharSet)!
         
-        let components = NSURLComponents()
-        components.scheme = "https"
-        components.host = "api.wotblitz.ru"
-        components.path = "/wotb/encyclopedia/vehicles/"
-        
-        var qI: [NSURLQueryItem] = []
-        
-        qI.append(NSURLQueryItem(name:"application_id", value:"demo"))
-//        qI.append(NSURLQueryItem(name:"fields", value:"tank_id name guns"))
-        qI.append(NSURLQueryItem(name:"tank_id", value:"1"))
 
-        components.queryItems = qI
+        components.path = "/wotb/encyclopedia/vehicles/"
+        var qI : [NSURLQueryItem] = components.queryItems!
+        
+//        qI.append(NSURLQueryItem(name:"fields", value:"tank_id name guns"))
+        if let ti = tankId {
+            qI.append(NSURLQueryItem(name:"tank_id", value:String(ti)))
+        }
         
         let url = components.URL
         
         print("\(components.string)")
         
-//        https://api.wotblitz.ru/wotb/encyclopedia/vehicles/?application_id=demo&fields=tank_id%2C%20name%2C%20guns&tank_id=1
+        //        https://api.wotblitz.ru/wotb/encyclopedia/vehicles/?application_id=demo&fields=tank_id%2C%20name%2C%20guns&tank_id=1
         
         
-        dataTask = defaultSession.dataTaskWithURL(url!) {
-            data, response, error in
+        dataTask = session.dataTaskWithURL(url!) {
+            [unowned self] data, response, error in
             
             dispatch_async(dispatch_get_main_queue()) {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             }
             
             if let error = error {
+                
                 print(error.localizedDescription)
+                completion(nil, error)
+                
             } else if let httpResponse = response as? NSHTTPURLResponse {
+                
                 if httpResponse.statusCode == 200 {
-                    self.updateSearchResults(data)
+                    do {
+                        let vehicles = try self.parseResults(data)
+                        completion(vehicles, nil)
+                    } catch let error as NSError {
+                        print(error.localizedDescription)
+                        completion(nil, error)
+                    }
                 }
             }
         }
-        dataTask?.resume()
+    }
+    
+    func resume() {
+        dataTask!.resume()
+    }
+    
+    func cancel() {
+        if dataTask != nil {
+            dataTask?.cancel()
+        }
     }
     
     // This helper method helps parse response JSON NSData into an array of Track objects.
-    func updateSearchResults(data: NSData?) {
-        do {
-            if let data = data {
-                let str = String(data:data, encoding:NSUTF8StringEncoding)
-                print("\(str)")
+    func parseResults(data: NSData?) throws -> [Vehicle]? {
+
+        if let data = data {
+            let str = String(data:data, encoding:NSUTF8StringEncoding)
+            print("\(str)")
+            
+            if let jsonData = try NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(rawValue:0)) as? [String: AnyObject] {
+                
+                // Get the results array
+                if let data = jsonData["data"] as? NSDictionary {
+                    
+                    var vehiclesList:[Vehicle] = []
+                    
+                    for (_,vehicleDictionary) in data {
+                        
+                        if let vehicleDictionary = vehicleDictionary as? [String: AnyObject] {
+                            
+                            let v = Vehicle()
+                            
+                            v.name = vehicleDictionary["name"] as? String
+                            v.tank_id = vehicleDictionary["tank_id"] as? Int
+                            vehiclesList.append(v)
+                        } else {
+                            print("Not a dictionary")
+                        }
+                    }
+                    
+                    return vehiclesList
+                } else {
+                    print("Results key not found in dictionary")
+                }
+            } else {
+                print("JSON Error")
             }
-            
-            
-//            if let data = data, response = try NSJSONSerialization.JSONObjectWithData(data, options:NSJSONReadingOptions(rawValue:0)) as? [String: AnyObject] {
-//                
-//                // Get the results array
-//                if let array: AnyObject = response["results"] {
-//                    for trackDictonary in array as! [AnyObject] {
-//                        if let trackDictonary = trackDictonary as? [String: AnyObject], previewUrl = trackDictonary["previewUrl"] as? String {
-//                            // Parse the search result
-//                            let name = trackDictonary["trackName"] as? String
-//                            let artist = trackDictonary["artistName"] as? String
-//                            searchResults.append(Track(name: name, artist: artist, previewUrl: previewUrl))
-//                        } else {
-//                            print("Not a dictionary")
-//                        }
-//                    }
-//                } else {
-//                    print("Results key not found in dictionary")
-//                }
-//            } else {
-//                print("JSON Error")
-//            }
-        } catch let error as NSError {
-            print("Error parsing results: \(error.localizedDescription)")
         }
-        
-//        dispatch_async(dispatch_get_main_queue()) {
-//            self.tableView.reloadData()
-//            self.tableView.setContentOffset(CGPointZero, animated: false)
-//        }
+        return nil
     }
 }
