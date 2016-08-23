@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE88C2391D6C467E0011AD43 /* GunsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88C2381D6C467E0011AD43 /* GunsListVC.swift */; };
+		CE8D1D691D6B1F070024E810 /* VehiclesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1D681D6B1F070024E810 /* VehiclesListVC.swift */; };
+		CE8D1D6C1D6B34880024E810 /* Gun.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1D6B1D6B34880024E810 /* Gun.swift */; };
+		CE8D1D6F1D6B35270024E810 /* GunsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE8D1D6E1D6B35270024E810 /* GunsRequest.swift */; };
 		E1447A331D2975EC00E36F14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E1447A321D2975EC00E36F14 /* main.m */; };
 		E1447A361D2975EC00E36F14 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E1447A351D2975EC00E36F14 /* AppDelegate.m */; };
-		E1447A391D2975EC00E36F14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1447A381D2975EC00E36F14 /* ViewController.m */; };
 		E1447A3C1D2975EC00E36F14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1447A3A1D2975EC00E36F14 /* Main.storyboard */; };
 		E1447A3E1D2975EC00E36F14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1447A3D1D2975EC00E36F14 /* Assets.xcassets */; };
 		E1447A411D2975EC00E36F14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1447A3F1D2975EC00E36F14 /* LaunchScreen.storyboard */; };
@@ -23,12 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE88C2381D6C467E0011AD43 /* GunsListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GunsListVC.swift; sourceTree = "<group>"; };
+		CE8D1D681D6B1F070024E810 /* VehiclesListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VehiclesListVC.swift; sourceTree = "<group>"; };
+		CE8D1D6B1D6B34880024E810 /* Gun.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gun.swift; sourceTree = "<group>"; };
+		CE8D1D6E1D6B35270024E810 /* GunsRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GunsRequest.swift; sourceTree = "<group>"; };
 		E1447A2E1D2975EC00E36F14 /* Guteabsicht.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guteabsicht.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1447A321D2975EC00E36F14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E1447A341D2975EC00E36F14 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E1447A351D2975EC00E36F14 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E1447A371D2975EC00E36F14 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E1447A381D2975EC00E36F14 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E1447A3B1D2975EC00E36F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1447A3D1D2975EC00E36F14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1447A401D2975EC00E36F14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +60,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE8D1D651D6B19680024E810 /* ViewsVCs */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D1D681D6B1F070024E810 /* VehiclesListVC.swift */,
+				CE88C2381D6C467E0011AD43 /* GunsListVC.swift */,
+			);
+			path = ViewsVCs;
+			sourceTree = "<group>";
+		};
+		CE8D1D6A1D6B33C20024E810 /* DataTypes */ = {
+			isa = PBXGroup;
+			children = (
+				E16225151D310D6B000B7437 /* Vehicle.swift */,
+				CE8D1D6B1D6B34880024E810 /* Gun.swift */,
+			);
+			path = DataTypes;
+			sourceTree = "<group>";
+		};
+		CE8D1D6D1D6B35000024E810 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CE8D1D6E1D6B35270024E810 /* GunsRequest.swift */,
+				E16225131D2ED81D000B7437 /* NetworkLayer.swift */,
+				E1AD85A11D2C3FBC004F8180 /* VehiclesRequest.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		E1447A251D2975EC00E36F14 = {
 			isa = PBXGroup;
 			children = (
@@ -76,22 +109,20 @@
 		E1447A301D2975EC00E36F14 /* Guteabsicht */ = {
 			isa = PBXGroup;
 			children = (
+				CE8D1D6D1D6B35000024E810 /* Networking */,
+				CE8D1D6A1D6B33C20024E810 /* DataTypes */,
 				E1447A341D2975EC00E36F14 /* AppDelegate.h */,
 				E1447A351D2975EC00E36F14 /* AppDelegate.m */,
-				E1447A371D2975EC00E36F14 /* ViewController.h */,
-				E1447A381D2975EC00E36F14 /* ViewController.m */,
-				E1447A3A1D2975EC00E36F14 /* Main.storyboard */,
 				E1447A3D1D2975EC00E36F14 /* Assets.xcassets */,
-				E1447A3F1D2975EC00E36F14 /* LaunchScreen.storyboard */,
-				E1447A421D2975EC00E36F14 /* Info.plist */,
-				E1447A311D2975EC00E36F14 /* Supporting Files */,
-				E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */,
 				E15BA24C1D299E3E00C1DD7B /* Guteabsicht-Bridging-Header.h */,
+				E1447A421D2975EC00E36F14 /* Info.plist */,
+				E1447A3F1D2975EC00E36F14 /* LaunchScreen.storyboard */,
+				E1447A3A1D2975EC00E36F14 /* Main.storyboard */,
+				E1447A311D2975EC00E36F14 /* Supporting Files */,
 				E15BA24F1D299F9900C1DD7B /* TestObjCFile.h */,
 				E15BA2501D299F9900C1DD7B /* TestObjCFile.m */,
-				E1AD85A11D2C3FBC004F8180 /* VehiclesRequest.swift */,
-				E16225131D2ED81D000B7437 /* NetworkLayer.swift */,
-				E16225151D310D6B000B7437 /* Vehicle.swift */,
+				E15BA24D1D299E3F00C1DD7B /* TestSwiftFile.swift */,
+				CE8D1D651D6B19680024E810 /* ViewsVCs */,
 			);
 			path = Guteabsicht;
 			sourceTree = "<group>";
@@ -177,13 +208,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E16225161D310D6B000B7437 /* Vehicle.swift in Sources */,
-				E1447A391D2975EC00E36F14 /* ViewController.m in Sources */,
 				E1447A361D2975EC00E36F14 /* AppDelegate.m in Sources */,
+				CE8D1D691D6B1F070024E810 /* VehiclesListVC.swift in Sources */,
 				E1AD85A21D2C3FBC004F8180 /* VehiclesRequest.swift in Sources */,
 				E1447A4B1D29778200E36F14 /* README.md in Sources */,
+				CE88C2391D6C467E0011AD43 /* GunsListVC.swift in Sources */,
 				E16225141D2ED81D000B7437 /* NetworkLayer.swift in Sources */,
 				E1447A331D2975EC00E36F14 /* main.m in Sources */,
 				E15BA24E1D299E3F00C1DD7B /* TestSwiftFile.swift in Sources */,
+				CE8D1D6F1D6B35270024E810 /* GunsRequest.swift in Sources */,
+				CE8D1D6C1D6B34880024E810 /* Gun.swift in Sources */,
 				E15BA2511D299F9900C1DD7B /* TestObjCFile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

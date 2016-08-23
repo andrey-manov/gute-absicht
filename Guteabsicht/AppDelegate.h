@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Guteabsicht-Swift.h"
+
+@class NetworkLayer;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

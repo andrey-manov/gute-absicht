@@ -18,7 +18,12 @@
 @synthesize networkLayer = _networkLayer;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // test swift usage from objc
+    TestSwiftFile* tsf = [[TestSwiftFile alloc] init];
+    NSString* str = [tsf getTestObjCStringTrhoughSwift];
+    NSLog(@"%@", str);
+    
     return YES;
 }
 
